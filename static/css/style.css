@@ -1,0 +1,190 @@
+/* Dark theme variables only */
+:root{
+	--bg: #0b0d12;
+	--surface: #111827;
+	--text: #e5e7eb;
+	--muted: #9ca3af;
+	--primary: #e5e7eb;
+	--primary-contrast: #111827;
+	--border: #1f2937;
+	--bubble-user: #1d4ed81a;
+	--bubble-user-border: #1d4ed840;
+	--bubble-bot: #0f172a;
+	--bubble-bot-border: #1f2937;
+}
+
+body.app-body{
+	font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+	background: var(--bg);
+	color: var(--text);
+	transition: background-color .3s ease, color .3s ease;
+	line-height: 1.6;
+	font-size: 16px;
+}
+
+h1, .h1, h2, .h2, h3, .h3{
+	color: var(--text);
+	letter-spacing: -0.01em;
+}
+
+p, .lead{
+	color: var(--text);
+}
+.lead{ color: #f3f4f6; }
+
+a{ color: #93c5fd; text-decoration: none; }
+a:hover{ color: #bfdbfe; text-decoration: underline; }
+
+.app-navbar{
+	background: var(--surface);
+	border-bottom: 1px solid var(--border);
+}
+.navbar .navbar-toggler{
+	border-color: var(--border);
+}
+.navbar .navbar-toggler-icon{
+	filter: invert(90%);
+}
+.app-footer{
+	background: var(--surface);
+	color: var(--muted);
+}
+.navbar .nav-link{ color: var(--muted); }
+.navbar .nav-link:hover{ color: var(--text); }
+.navbar .navbar-brand{ color: var(--text); }
+
+.app-btn-primary{
+	background: var(--primary);
+	color: var(--primary-contrast);
+	border: 0;
+	transition: transform .08s ease, filter .2s ease;
+}
+.app-btn-primary:hover{ filter: brightness(1.05); }
+.app-btn-primary:active{ transform: translateY(1px); }
+
+/* Make default dark buttons accessible on dark background */
+.btn-dark{
+	background: var(--primary) !important;
+	color: var(--primary-contrast) !important;
+	border: 0 !important;
+}
+.btn-dark:hover{ filter: brightness(1.05); }
+
+.app-btn-ghost{
+	background: transparent;
+	color: var(--text);
+	border: 1px solid var(--border);
+	transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.app-btn-ghost:hover{ background: var(--surface); border-color: var(--muted); }
+
+.app-input{
+	background: var(--surface);
+	color: var(--text);
+	border-color: var(--border);
+}
+.app-input::placeholder{ color: var(--muted); }
+
+/* Fix Bootstrap light backgrounds in dark theme sections */
+.bg-white, .bg-light{
+	background-color: var(--surface) !important;
+	color: var(--text) !important;
+}
+.border{ border-color: var(--border) !important; }
+
+/* Cards and sections look better with subtle rounding and spacing */
+.rounded{ border-radius: 10px !important; }
+.container{ max-width: 1080px; }
+.py-5{ padding-top: 3rem !important; padding-bottom: 3rem !important; }
+
+/* Improve readability of section with originally white background */
+section.bg-white, section.bg-light{ border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+/* Animations */
+@keyframes fadeInUp{
+	0%{opacity:0; transform: translateY(12px)}
+	100%{opacity:1; transform: none}
+}
+.fade-in-up{ animation: fadeInUp .5s ease both; }
+
+@media (prefers-reduced-motion: reduce){
+	.fade-in-up, .streambot-window{ animation: none !important; transition: none !important; }
+}
+
+ .streambot-widget {
+ 	position: fixed;
+ 	bottom: 20px;
+ 	right: 20px;
+ 	z-index: 1050;
+ }
+
+#streambot-toggle { border-radius: 999px; }
+.app-chat-toggle{ background: var(--primary); color: var(--primary-contrast); border: none; }
+.app-chat-toggle:hover{ filter: brightness(1.05); }
+
+ .streambot-window {
+ 	width: 340px;
+ 	height: 440px;
+ 	position: absolute;
+ 	bottom: 60px;
+ 	right: 0;
+		background: var(--surface);
+	border: 1px solid var(--border);
+	backdrop-filter: saturate(140%) blur(6px);
+	animation: fadeInUp .25s ease both;
+ }
+
+ /* Ensure readable text inside the chatbot window (Bootstrap sets dark text by default) */
+ .streambot-window,
+ .streambot-window .card-header,
+ .streambot-window .card-body,
+ .streambot-window .card-footer{
+ 	color: var(--text) !important;
+ 	background: var(--surface) !important;
+ }
+
+ .streambot-messages {
+ 	height: 300px;
+ 	overflow-y: auto;
+ }
+
+ .msg-user {
+	background: var(--bubble-user);
+	border: 1px solid var(--bubble-user-border);
+ 	color: var(--text);
+ }
+
+ .msg-bot {
+	background: var(--bubble-bot);
+	border: 1px solid var(--bubble-bot-border);
+ 	color: var(--text);
+ }
+
+.app-chat-header{
+	background: var(--surface);
+	color: var(--text);
+	border-bottom: 1px solid var(--border);
+}
+
+.app-badge{ background: var(--border); color: var(--text); }
+.app-bubble-bot{ background: var(--bubble-bot); border-color: var(--bubble-bot-border); }
+
+/* Chat input contrast improvements */
+#streambot-input{
+	background: var(--surface);
+	color: var(--text);
+	border-color: var(--border);
+}
+#streambot-input::placeholder{ color: var(--muted); }
+
+/* Utilities for spacing and readability */
+.mt-2{ margin-top: .5rem !important; }
+.mt-3{ margin-top: 1rem !important; }
+.mt-4{ margin-top: 1.5rem !important; }
+
+/* Ensure tables (if any) have proper contrast */
+table{ color: var(--text); }
+thead, tbody, tr, th, td{ border-color: var(--border); }
+
+
+

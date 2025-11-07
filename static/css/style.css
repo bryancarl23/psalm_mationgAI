@@ -160,6 +160,11 @@ section.bg-white, section.bg-light{ border-top: 1px solid var(--border); border-
  	color: var(--text);
  }
 
+.msg-user, .msg-bot{
+	white-space: pre-wrap;
+	line-height: 1.55;
+}
+
 .app-chat-header{
 	background: var(--surface);
 	color: var(--text);

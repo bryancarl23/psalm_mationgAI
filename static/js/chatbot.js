@@ -12,17 +12,30 @@
  		messages.scrollTop = messages.scrollHeight;
  	}
 
+	function escapeHtml(str) {
+		return str
+			.replace(/&/g, "&amp;")
+			.replace(/</g, "&lt;")
+			.replace(/>/g, "&gt;")
+			.replace(/"/g, "&quot;")
+			.replace(/'/g, "&#39;");
+	}
+
+	function renderMessage(text) {
+		return escapeHtml(text).replace(/\n/g, "<br>");
+	}
+
  	function addMessage(text, role) {
  		const wrap = document.createElement('div');
  		wrap.className = 'mb-3';
 
  		const badge = document.createElement('div');
- 		badge.className = 'badge ' + (role === 'user' ? 'bg-primary' : 'bg-secondary');
+		badge.className = 'badge app-badge';
  		badge.textContent = role === 'user' ? 'You' : 'StreamBot';
 
  		const bubble = document.createElement('div');
- 		bubble.className = 'mt-2 p-2 border rounded ' + (role === 'user' ? 'msg-user' : 'msg-bot');
- 		bubble.textContent = text;
+		bubble.className = 'mt-2 p-3 border rounded-3 ' + (role === 'user' ? 'msg-user' : 'msg-bot');
+		bubble.innerHTML = renderMessage(text);
 
  		wrap.appendChild(badge);
  		wrap.appendChild(bubble);

@@ -1,6 +1,9 @@
- # Streamplus Premium Hub – AI Chatbot Website (Django)
+# Streamplus Premium Hub – AI Chatbot Website (Django)
 
- Run locally:
+**Author & Developer:** Bryan Carl C. Mationg  
+**GitHub:** [@bryancarl23](https://github.com/bryancarl23)
+
+Run locally:
 
  ```bash
  python -m venv .venv && source .venv/bin/activate
